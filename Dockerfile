@@ -13,6 +13,7 @@ ENV KERNEL_BUILDDEPS="git-core gnupg flex bison gperf build-essential zip curl \
     BUILDROOT_BUILDDEPS="libfile-which-perl sed make binutils gcc g++ bash \
         patch gzip bzip2 perl tar cpio python unzip rsync file bc libmpc3 \
         git repo texinfo pkg-config cmake tree" \
+    UBOOT_BUILDDEPS="gawk" \
     TOOLS="genext2fs time wget liblz4-tool" \
     PROJECT="/home/project"
 
@@ -36,6 +37,7 @@ RUN apt-get update \
 # Install dependencies
     && apt-get install -y $KERNEL_BUILDDEPS \
     && apt-get install -y $BUILDROOT_BUILDDEPS \
+    && apt-get install -y $UBOOT_BUILDDEPS \
     && apt-get install -y $TOOLS \
 # Clean
     && apt-get clean \
